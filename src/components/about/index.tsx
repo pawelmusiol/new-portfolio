@@ -14,13 +14,13 @@ const Desc = styled(Grid)({
 
 const About = () => {
     return (
-        <Container sx={{minHeight: '100vh', display: 'flex', justifyContent:'center', flexDirection:'column'}} id='about'>
+        <Container sx={{ minHeight: '100vh', display: 'flex', justifyContent: 'center', flexDirection: 'column' }} id='about'>
             <Typography variant='h2'>
                 Cześć, jestem Paweł,
             </Typography>
             <Grid container direction='row'>
-                <Grid item xs={8}>
-                    <Desc item xs={11}>
+                <Grid item xs={8} direction='column'>
+                    <Desc item xs={8}>
                         <Typography>
                             fullstack developer z Polski. Tworzę projekty oparte o ReactJS i NodeJS.
                         </Typography>
@@ -31,14 +31,17 @@ const About = () => {
                         <Typography>
                             Staram się rozwijać i eksperymentować z różnymi bibliotekami np. ThreeJS, Mui
                         </Typography>
+                        <Typography>
+                            Oprócz Kodowania interesuję się sportem i muzyką, zbieram winyle.
+                        </Typography>
                     </Desc>
-                    <Grid item>
-                        <Skills />
-                    </Grid>
                 </Grid>
                 <Grid item xs={4}>
                     <img src={Me} style={{ width: '90%', borderRadius: 12, border: '2px solid #000' }} />
                 </Grid>
+            </Grid>
+            <Grid item>
+                <Skills />
             </Grid>
         </Container>
     )

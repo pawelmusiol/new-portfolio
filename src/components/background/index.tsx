@@ -227,6 +227,7 @@ const CanvasBox = ({ children }: IProps) => {
                 setCanvasTop('-8vh')
             }
         }
+        
 
         document.addEventListener('scroll', changePosition)
         return () => document.removeEventListener('scroll', changePosition)

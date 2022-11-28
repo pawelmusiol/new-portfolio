@@ -49,9 +49,17 @@ const SkillPaper = styled(Paper)({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+    margin: 'auto',
     width: 80,
     height: 80,
 
+})
+
+const SkillsGrid = styled(Grid)({
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    backdropFilter: 'blur(10px)',
+    borderRadius: 12,
+    padding: 10,
 })
 
 const SingleSkill = ({ name, src }: { name: string, src: string }) => {
@@ -68,12 +76,12 @@ const SingleSkill = ({ name, src }: { name: string, src: string }) => {
 const Skills = () => {
     return (
         <Box component='div' >
-            <Typography variant='h4' sx={{margin: '12px 0'}}>My Skills</Typography>
-            <Grid container direction='row' gap={2} sx={{ display: 'flex', justifyContent: 'center' }}>
+            <Typography variant='h4' sx={{ margin: '12px 0' }}>My Skills</Typography>
+            <SkillsGrid container direction='row' gap={2} sx={{ display: 'flex', justifyContent: 'center' }}>
                 {Stack.map(skill => <SingleSkill name={skill.name} src={skill.img} />)}
-            </Grid>
-            </Box>
-                )
+            </SkillsGrid>
+        </Box>
+    )
 }
 
-                export default Skills
+export default Skills
