@@ -1,0 +1,8 @@
+export {default as Gatsby } from './gatsby.svg'
+export {default as JS } from './javascript.svg'
+export {default as Mongodb } from './mongodb.svg'
+export {default as Next } from './next.svg'
+export {default as Nodejs } from './nodejs.svg'
+export {default as ReactImg } from './react.svg'
+export {default as TS } from './typescript.svg'
+export {default as Expo } from './expo.svg'

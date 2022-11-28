@@ -1,0 +1,8 @@
+export { default as Landing } from './landing'
+export { default as Tab } from './tabs/tab'
+export { default as Tabs } from './tabs'
+export { default as Background } from './background'
+export { default as Projects } from './projects'
+export { default as TopMenu } from './TopMenu'
+export { default as About } from './about'
+export { default as Contact } from './contact'

@@ -1,0 +1,6 @@
+export { default as GitHub } from './github.png'
+export { default as LinkedIn } from './linkedin.png'
+export { default as Cinema } from './projects/cinema.jpg'
+export { default as ExpandMore } from './expandMore.svg'
+export { default as Mail } from './mail.svg'
+export { default as Me } from './me.jpg'
