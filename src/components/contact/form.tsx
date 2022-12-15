@@ -18,7 +18,11 @@ const DialogHeader = styled(Box)({
     }
 })
 
-const Form = () => {
+interface IProps{
+    language: string,
+}
+
+const Form = ({language}: IProps) => {
 
     const [DialogState, setDialogState] = useState(false)
 
@@ -31,19 +35,19 @@ const Form = () => {
 
     return (
         <Box component='div'>
-            <Button onClick={handleOpen} sx={{ background: '#222', '&:hover': { background: '#222', boxShadow: '5px -5px #666' } }}>Skontaktuj się ze mną</Button>
+            <Button onClick={handleOpen} sx={{ background: '#222', '&:hover': { background: '#222', boxShadow: '5px -5px #666' } }}>{language == 'pl' ?"Skontaktuj się": 'Send a message'}</Button>
             <Dialog onClose={handleClose} open={DialogState}>
                 <DialogHeader>
-                    <Typography>Skontaktuj się</Typography>
+                    <Typography>{language == 'pl' ?"Skontaktuj się": 'Send a message'}</Typography>
                 </DialogHeader>
                 <SBox component='div'>
                     <FormControl sx={{ minWidth: '40vh' }}>
                         {/* <Box component='div' sx={{ display: 'flex', columnGap: 5 }}> */}
-                        <TextField label="Imie i Nazwisko" variant="standard" fullWidth />
+                        <TextField label={language == 'pl' ?"Imie i Nazwisko": 'Name and Surname'} variant="standard" fullWidth />
                         <TextField label="Mail" variant="standard" fullWidth />
                         {/* </Box> */}
-                        <TextField label="Wiadomość" variant="standard" fullWidth multiline rows={4} />
-                        <Button sx={{ marginTop: 1, background: '#222', alignSelf: 'flex-end', maxWidth: 'fit-content' , '&:hover': { background: '#222', boxShadow: '5px -5px #666' } }}>Wyślij</Button>
+                        <TextField label={language == 'pl' ?"Wiadomość": 'Message'} variant="standard" fullWidth multiline rows={4} />
+                        <Button sx={{ marginTop: 1, background: '#222', alignSelf: 'flex-end', maxWidth: 'fit-content' , '&:hover': { background: '#222', boxShadow: '5px -5px #666' } }}>{language == 'pl' ?"Wyślij": 'Send'}</Button>
                     </FormControl>
                 </SBox>
             </Dialog>

@@ -2,13 +2,12 @@ import React from "react";
 import { useState, createContext } from "react";
 
 const AppState = {
-    context: {
-        colors: {
-            A: "#FFE486",
-            B: "#FEB3D9",
-        }
+    State: {
+        Language: 'pl',
+        BlobPosition: '0',
     },
-    setContext: () => { }
+    setLanguage: () => { },
+    setBlobPosition: () => { },
 }
 
 
@@ -17,24 +16,25 @@ interface IProps {
 }
 
 interface IContextState {
-    context: {
-        colors: {
-            A: string,
-            B: string,
-        }
+    State: {
+        Language:string;
+        BlobPosition: string;
     }
-
-    setContext: React.Dispatch<React.SetStateAction<{ colors: { A: string, B: string } }>>
+    
+    setLanguage: React.Dispatch<React.SetStateAction<string>>
+    setBlobPosition:  React.Dispatch<React.SetStateAction<string>>
 }
 
-export const AppStateContext = createContext<IContextState>(AppState)
+export const LanguageContext = createContext<IContextState>(AppState)
 
 const CombinedProviders = ({ children }: IProps) => {
-    const [context, setContext] = useState<{ colors: { A: string, B: string } }>({ colors: { A: '', B: '' } })
+    const [Language, setLanguage] = useState<string>('pl')
+    const [BlobPosition, setBlobPosition] = useState<string>('0')
+
     return (
-        <AppStateContext.Provider value={{ context, setContext }}>
+        <LanguageContext.Provider value={{ State:{ Language: Language, BlobPosition: BlobPosition}, setLanguage, setBlobPosition }}>
             {children}
-        </AppStateContext.Provider>
+        </LanguageContext.Provider>
     )
 }
 

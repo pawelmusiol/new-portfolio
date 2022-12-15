@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Typography, styled, Paper, Box } from '@mui/material';
 import { Expo, Gatsby, JS, Mongodb, Next, Nodejs, ReactImg, TS } from '../../images/stack'
+import { Hexagon } from '../'
 
 const Stack = [
     {
@@ -43,42 +44,49 @@ const Stack = [
 ]
 
 
-const SkillPaper = styled(Paper)({
-    backgroundColor: '#eee',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    justifyContent: 'center',
-    margin: 'auto',
-    width: 80,
-    height: 80,
 
-})
-
-const SkillsGrid = styled(Grid)({
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
-    backdropFilter: 'blur(10px)',
+const SkillsGrid = styled(Grid)(({ theme }) => ({
+    //backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    //backdropFilter: 'blur(10px)',
+    marginLeft: '0vw',
     borderRadius: 12,
     padding: 10,
-})
+    [theme.breakpoints.down('md')]: {
+        marginLeft: '0',
+        width: '110vw',
+        transform: 'scale(.7)',
+    }
+}))
 
-const SingleSkill = ({ name, src }: { name: string, src: string }) => {
+const SingleSkill = ({ name, src, margin }: { name: string, src: string, margin: number }) => {
     return (
-        <Grid item xs={2}>
-            <SkillPaper>
-                <img style={{ height: '48px' }} src={src} />
-                <Typography>{name}</Typography>
-            </SkillPaper>
+        <Grid item sx={{ position: 'relative' }}>
+            <Hexagon marginLeft={margin} >
+                <img style={{ height: '48px', zIndex: 10 }} src={src} />
+                <Typography sx={{ zIndex: 10 }}>{name}</Typography>
+            </Hexagon>
         </Grid>
     )
 }
 
-const Skills = () => {
+interface IProps {
+    title: string
+}
+
+const Skills = ({ title }: IProps) => {
     return (
-        <Box component='div' >
-            <Typography variant='h4' sx={{ margin: '12px 0' }}>My Skills</Typography>
-            <SkillsGrid container direction='row' gap={2} sx={{ display: 'flex', justifyContent: 'center' }}>
-                {Stack.map(skill => <SingleSkill name={skill.name} src={skill.img} />)}
+        <Box component='div'>
+            <Typography variant='h4' sx={{ margin: '12px 0' }}>{title}</Typography>
+            <SkillsGrid container direction='row' sx={{ display: 'flex', justifyContent: 'flex-start', marginTop: 6 }}>
+                {Stack.map((skill, i) => {
+                    return (
+                        <>
+                            {i % 3 == 0 && <Box component='div' width="100%" />}
+                            <SingleSkill name={skill.name} src={skill.img} margin={i % 3 == 0 ? Math.floor(3 - (i / 3) * 56) : 0} />
+
+                        </>
+                    )
+                })}
             </SkillsGrid>
         </Box>
     )

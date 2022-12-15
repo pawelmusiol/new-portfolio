@@ -1,8 +1,8 @@
 import React from 'react';
 import { createTheme, ThemeProvider, CssBaseline} from '@mui/material'
-import { NONAME } from 'dns';
 
-const theme = createTheme({
+let theme = createTheme()
+theme = createTheme(theme, {
     typography: {
         fontFamily: 'Dosis, sans-serif'
     },
@@ -14,6 +14,11 @@ const theme = createTheme({
                     fontFamily: 'Dosis, sans-serif',
                     overflowX: 'hidden',
                     background: 'none',
+                    color: '#C0C0C0',
+                    [theme.breakpoints.down('md')]:{
+                        width: '100vw',
+                        maxWidth: '100vw',
+                    }
                 }
             }
         }

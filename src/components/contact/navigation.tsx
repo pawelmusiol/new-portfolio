@@ -1,11 +1,15 @@
 import React from 'react';
 import { Button, Box } from '@mui/material';
 
-const Navigation = () => {
+interface IProps {
+    language: string
+}
+
+const Navigation = ({ language }: IProps) => {
     return (
         <Box component='div'>
-            <Button>O Mnie</Button>
-            <Button>Projekty</Button>
+            <Button>{language == 'pl' ?"O mnie": 'About'}</Button>
+            <Button>{language == 'pl' ?"Projekty": 'Projects'}</Button>
         </Box>
     )
 }
