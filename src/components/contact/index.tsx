@@ -5,7 +5,7 @@ import Social from './social'
 import Navigation from './navigation'
 import { LanguageContext } from '../../providers/context'
 
-const FlexContainer = styled(Container)(({theme}) => ({
+const FlexContainer = styled(Container)(({ theme }) => ({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-evenly',
@@ -13,14 +13,14 @@ const FlexContainer = styled(Container)(({theme}) => ({
     ' & > *': {
         flex: '1 1 0',
     },
-    [theme.breakpoints.down('md')]:{
+    [theme.breakpoints.down('md')]: {
         flexDirection: 'column-reverse',
     }
 }))
 
 const Contact = () => {
 
-    const {State} = useContext(LanguageContext)
+    const { State } = useContext(LanguageContext)
 
     return (
         <Container sx={{ minWidth: '100vw', backgroundColor: '#C0C0C0', marginTop: 20, padding: '40px 0' }} disableGutters id='contact'>

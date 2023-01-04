@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Box } from '@mui/material';
+import { NavigateToSection } from '../TopMenu'
 
 interface IProps {
     language: string
@@ -8,8 +9,8 @@ interface IProps {
 const Navigation = ({ language }: IProps) => {
     return (
         <Box component='div'>
-            <Button>{language == 'pl' ?"O mnie": 'About'}</Button>
-            <Button>{language == 'pl' ?"Projekty": 'Projects'}</Button>
+            <Button onClick={() => NavigateToSection('about')}>{language === 'pl' ?"O mnie": 'About'}</Button>
+            <Button onClick={() => NavigateToSection('projects')}>{language === 'pl' ?"Projekty": 'Projects'}</Button>
         </Box>
     )
 }

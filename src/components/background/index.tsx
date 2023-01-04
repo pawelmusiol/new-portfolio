@@ -127,9 +127,10 @@ const CanvasBox = ({ children }: IProps) => {
             }
             if (mobile && window.scrollY < 100) setCanvasTop('18vh')
             if (mobile && window.scrollY > 100) setCanvasTop('28vh')
-            if (mobile) setCanvasLeft('0')
+            if (mobile) setCanvasLeft('0vw')
         }
 
+        if (mobile) setCanvasLeft('0vw')
         document.addEventListener('scroll', changePosition)
         return () => document.removeEventListener('scroll', changePosition)
     }, [])
