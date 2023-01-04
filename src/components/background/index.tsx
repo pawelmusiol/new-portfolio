@@ -102,7 +102,7 @@ const BackgroundBox = styled('div')(({ theme }) => ({
             margin: 'auto',
             marginTop: '100px',
             transform: 'scale(1)',
-            width: '100vw !important',
+            width: '200vw !important',
         },
     }
 }))
