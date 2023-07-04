@@ -6,10 +6,10 @@ const MainBox = styled(Box)(({ theme }) => ({
     color: 'white',
     display: 'flex',
     flexDirection: 'column',
-    width: 'calc(100vw - 50vh)',
+    width: 'calc(100vw - 10vh)',
     height: '90vh',
     alignContent: 'flex-end',
-    justifyContent: 'center',
+    justifyContent: 'flex-end',
     textAlign: 'right',
     [theme.breakpoints.down('md')]: {
         width: '80vw',

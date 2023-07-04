@@ -1,12 +1,12 @@
 import React from 'react';
 import { Container, Grid } from '@mui/material'
 import SingleProject from './singleProject';
-import { Cinema } from '../../images'
+import { Cinema, PioTrans, Erc, Rmp, Archon } from '../../images'
 
 const projectsData = [
     {
         name: 'Archon Group',
-        img: Cinema,
+        img: Archon,
         live: 'https://archongroup.pl/',
         github: '',
         desc: {
@@ -17,7 +17,7 @@ const projectsData = [
     },
     {
         name: 'Pio-Trans',
-        img: Cinema,
+        img: PioTrans,
         live: 'http://www.pio-trans.pl/',
         github: '',
         desc: {
@@ -28,7 +28,7 @@ const projectsData = [
     },
     {
         name: 'Random Movie Picker',
-        img: Cinema,
+        img: Rmp,
         live: 'https://random-movie-picker-mu.vercel.app/',
         github: 'https://github.com/pawelmusiol/random-movie-picker',
         desc: {
@@ -39,7 +39,7 @@ const projectsData = [
     },
     {
         name: 'Elite Tourism Route',
-        img: Cinema,
+        img: Erc,
         live: 'https://elite-tourism-route.vercel.app/',
         github: 'https://random-movie-picker-mu.vercel.app/',
         desc: {

@@ -48,7 +48,6 @@ const Stack = [
 const SkillsGrid = styled(Grid)(({ theme }) => ({
     //backgroundColor: 'rgba(0, 0, 0, 0.4)',
     //backdropFilter: 'blur(10px)',
-    marginLeft: '0vw',
     borderRadius: 12,
     padding: 10,
     [theme.breakpoints.down('md')]: {
@@ -58,13 +57,18 @@ const SkillsGrid = styled(Grid)(({ theme }) => ({
     }
 }))
 
-const SingleSkill = ({ name, src, margin }: { name: string, src: string, margin: number }) => {
+const BoxWithBG = styled(Box)(() => ({
+    background: ' linear-gradient(54.48deg, rgba(54, 169, 225, 0.5) 0%, rgba(66, 158, 218, 0.5) 4.63%, rgba(124, 102, 186, 0.5) 29.26%, rgba(170, 58, 160, 0.5) 51.98%, rgba(203, 26, 141, 0.5) 72.07%, rgba(223, 7, 130, 0.5) 88.76%, rgba(230, 0, 126, 0.5) 100%)'
+
+}))
+
+const SingleSkill = ({ name, src }: { name: string, src: string, }) => {
     return (
-        <Grid item sx={{ position: 'relative' }}>
-            <Hexagon marginLeft={margin} >
-                <img style={{ height: '48px', zIndex: 10 }} src={src} />
-                <Typography sx={{ zIndex: 10 }}>{name}</Typography>
-            </Hexagon>
+        <Grid item xs={3} md={2} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>
+            <BoxWithBG sx={{ display: 'flex', maxWidth: '80px', minWidth: '80px', aspectRatio: '1/1', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' , borderRadius: '12px' }} >
+                <img style={{ zIndex: 10, maxWidth: '48px', minWidth: '48px' }} src={src} />
+            </BoxWithBG>
+            <Typography sx={{ zIndex: 10 }}>{name}</Typography>
         </Grid>
     )
 }
@@ -75,14 +79,14 @@ interface IProps {
 
 const Skills = ({ title }: IProps) => {
     return (
-        <Box component='div'>
-            <Typography variant='h4' sx={{ margin: '12px 0' }}>{title}</Typography>
-            <SkillsGrid container direction='row' sx={{ display: 'flex', justifyContent: 'flex-start', marginTop: 6 }}>
+        <Box component='div' sx={{marginTop: 10}}>
+            <Typography variant='h3' sx={{ margin: '12px 0', textAlign: 'center' }}>{title}</Typography>
+            <SkillsGrid spacing={2} container direction='row' sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', marginTop: 6 }}>
                 {Stack.map((skill, i) => {
                     return (
                         <>
-                            {i % 3 == 0 && <Box component='div' width="100%" />}
-                            <SingleSkill name={skill.name} src={skill.img} margin={i % 3 == 0 ? Math.floor(3 - (i / 3) * 56) : 0} />
+                            {/*i % 3 == 0 && <Box component='div' width="100%" />*/}
+                            <SingleSkill name={skill.name} src={skill.img} />
 
                         </>
                     )

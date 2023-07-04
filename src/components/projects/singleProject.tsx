@@ -44,8 +44,8 @@ const TechBox = styled(Box)(({ pos }: IStyleProps) => ({
     gap: 10,
     margin: '10px 0 0 10px ',
     '& p': {
-        backgroundColor: '#D3D3D3',
-        color: '#2B2B2B',
+        background: ' linear-gradient(54.48deg, rgba(54, 169, 225, 0.5) 0%, rgba(66, 158, 218, 0.5) 4.63%, rgba(124, 102, 186, 0.5) 29.26%, rgba(170, 58, 160, 0.5) 51.98%, rgba(203, 26, 141, 0.5) 72.07%, rgba(223, 7, 130, 0.5) 88.76%, rgba(230, 0, 126, 0.5) 100%)',
+        color: '#c0c0c0',
         padding: 4,
         borderRadius: '.5rem'
     },
