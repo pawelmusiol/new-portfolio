@@ -22,11 +22,12 @@ const Menu = styled(Box)(({ theme }) => ({
 
 const Name = styled(Typography)({
     position: 'fixed',
-    bottom: 10,
-    left: '50%',
+    top: 16,
+    left: '2%',
     color: '#FFDB58',
     fontSize: '1.6rem',
-    transform: 'translateX(-50%)'
+    //transform: 'translateX(-50%)',
+    zIndex: 10001,
 })
 
 interface IProps {
@@ -47,7 +48,7 @@ const MobileMenu = ({ language, changeLanguage, navigateToSection, closeMenu }: 
         <Menu component='div'>
             <Button onClick={closeMenu}><img src={Close} /></Button>
             <Name>Paweł Musioł</Name>
-            <Button onClick={() => NavigateAndClose('start')}>{language == 'pl' ? "Start" : 'Start'}</Button>
+            <Button onClick={() => NavigateAndClose('landing')}>{language == 'pl' ? "Start" : 'Start'}</Button>
             <Button onClick={() => NavigateAndClose('about')}>{language == 'pl' ? "O Mnie" : 'About'}</Button>
             <Button onClick={() => NavigateAndClose('projects')}>{language == 'pl' ? "Projekty" : 'Projects'}</Button>
             <Button onClick={() => NavigateAndClose('contact')}>{language == 'pl' ? "Kontakt" : 'Contact'}</Button>

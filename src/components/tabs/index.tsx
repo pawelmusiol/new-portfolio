@@ -60,7 +60,7 @@ const Tabs = () => {
     }
 
     return (
-        <Grid container columns={16} spacing={2} sx={{ display: 'flex', position: 'absolute', top: 60, right: 10, justifyContent: 'flex-end', flexDirection: 'row', width: ' 30vw' }}>
+        <Grid container columns={16} spacing={2} sx={{ display: 'flex', position: 'absolute', top: 60, right: '20vh', justifyContent: 'flex-end', flexDirection: 'row', width: 'clamp(400px,40vw,450px)' }}>
             <SingleLink sx={{justifyContent: 'flex-end'}} xs={7} onClick={() => NavigateToSection('about')}>
                 {State.Language == 'pl' ? "O Mnie" : 'About'}
             </SingleLink>

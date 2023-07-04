@@ -52,9 +52,18 @@ const SkillsGrid = styled(Grid)(({ theme }) => ({
     padding: 10,
     [theme.breakpoints.down('md')]: {
         marginLeft: '0',
-        width: '110vw',
-        transform: 'scale(.7)',
+        width: '90vw',
+        //transform: 'scale(.7)',
+        alignItems: 'flex-start',
     }
+}))
+
+const SingleSkillGrid = styled(Grid)(({ theme }) => ({
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    textAlign: 'center',
 }))
 
 const BoxWithBG = styled(Box)(() => ({
@@ -64,12 +73,12 @@ const BoxWithBG = styled(Box)(() => ({
 
 const SingleSkill = ({ name, src }: { name: string, src: string, }) => {
     return (
-        <Grid item xs={3} md={2} sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center'}}>
-            <BoxWithBG sx={{ display: 'flex', maxWidth: '80px', minWidth: '80px', aspectRatio: '1/1', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' , borderRadius: '12px' }} >
+        <SingleSkillGrid item xs={3} md={2}>
+            <BoxWithBG sx={{ display: 'flex', maxWidth: '80px', minWidth: '80px', aspectRatio: '1/1', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', borderRadius: '12px' }} >
                 <img style={{ zIndex: 10, maxWidth: '48px', minWidth: '48px' }} src={src} />
             </BoxWithBG>
             <Typography sx={{ zIndex: 10 }}>{name}</Typography>
-        </Grid>
+        </SingleSkillGrid>
     )
 }
 
@@ -79,7 +88,7 @@ interface IProps {
 
 const Skills = ({ title }: IProps) => {
     return (
-        <Box component='div' sx={{marginTop: 10}}>
+        <Box component='div' sx={{ marginTop: 10 }}>
             <Typography variant='h3' sx={{ margin: '12px 0', textAlign: 'center' }}>{title}</Typography>
             <SkillsGrid spacing={2} container direction='row' sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', marginTop: 6 }}>
                 {Stack.map((skill, i) => {

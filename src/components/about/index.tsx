@@ -34,7 +34,7 @@ const Desc = styled(Grid)(({ theme }) => ({
         marginTop: '10px',
     },
     [theme.breakpoints.down('md')]: {
-        '& > p' : {
+        '& > p': {
             fontSize: '1.2rem',
         },
         '& :not(p:nth-child(1))': {
@@ -43,6 +43,10 @@ const Desc = styled(Grid)(({ theme }) => ({
     }
 }))
 
+const Title = styled(Typography)(({ theme }) => ({
+    color: '#FFDB58',
+    fontSize: 'clamp(2rem, 3.5vw, 4rem)',
+}))
 
 
 const About = () => {
@@ -51,9 +55,9 @@ const About = () => {
 
     return (
         <Container sx={{ minHeight: '100vh', display: 'flex', justifyContent: 'center', flexDirection: 'column' }} id='about'>
-            <Typography variant='h2' sx={{ color: '#FFDB58' }}>
+            <Title variant='h2'>
                 {State.Language == 'pl' ? plContent.title : enContent.title}
-            </Typography>
+            </Title>
             <Grid container direction='row'>
                 <Grid item xs={8} direction='column'>
                     <Desc item xs={8}>

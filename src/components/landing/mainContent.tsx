@@ -6,7 +6,7 @@ const MainBox = styled(Box)(({ theme }) => ({
     color: 'white',
     display: 'flex',
     flexDirection: 'column',
-    width: 'calc(100vw - 10vh)',
+    width: 'calc(100vw - 20vh)',
     height: '90vh',
     alignContent: 'flex-end',
     justifyContent: 'flex-end',
@@ -15,7 +15,9 @@ const MainBox = styled(Box)(({ theme }) => ({
         width: '80vw',
         textAlign: 'right',
         margin: 'auto',
+        justifyContent: 'center',
         '& > h1': {
+            marginBottom: 10,
             fontSize: '3.2rem'
         },
         '& > h3': {

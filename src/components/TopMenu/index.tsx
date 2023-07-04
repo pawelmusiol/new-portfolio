@@ -78,7 +78,7 @@ const TopMenu = () => {
     return (
         <TopBar sx={{ zIndex: 10000 }} ref={barRef}>
             <OuterBox component='div'>
-                <Typography>Paweł Musioł</Typography>
+                <Typography sx={{color: '#FFDB58', fontSize: '1.6rem'}}>Paweł Musioł</Typography>
                 <Box component='div'>
                     {!mobile ? <>
                         <Button onClick={() => NavigateToSection('about')}>{State.Language == 'pl' ? "O Mnie" : 'About'}</Button>
