@@ -87,7 +87,7 @@ const SingleProject = ({ project, pos }: IProps) => {
             <ProjectBox component='div' sx={{ flexDirection: pos }}>
                 <Image src={project.img} />
 
-                <Box component='div'>
+                <Box component='div' sx={{zIndex:1}}>
                     <Box component='div' sx={{ marginBottom: 1, display: 'flex', flexDirection: pos, justifyContent: 'flex-end' }}>
                         <Typography variant='h4' sx={{ fontWeight: 600, color: '#FFDB58' }}>
                             {project.name}
