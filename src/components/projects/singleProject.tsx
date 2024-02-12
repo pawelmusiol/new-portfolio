@@ -85,7 +85,7 @@ const SingleProject = ({ project, pos }: IProps) => {
     return (
         <Grid item maxWidth={980}>
             <ProjectBox component='div' sx={{ flexDirection: pos }}>
-                <Image src={project.img} />
+                <Image src={project.img} alt={project.name} />
 
                 <Box component='div' sx={{zIndex:1}}>
                     <Box component='div' sx={{ marginBottom: 1, display: 'flex', flexDirection: pos, justifyContent: 'flex-end' }}>

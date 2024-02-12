@@ -33,26 +33,26 @@ const Name = styled(Typography)({
 interface IProps {
     language: string,
     changeLanguage: () => void,
-    navigateToSection: (section: string) => void,
+    navigateToSection: (section: string, marginTop?: number) => void,
     closeMenu: () => void
 }
 
 const MobileMenu = ({ language, changeLanguage, navigateToSection, closeMenu }: IProps) => {
 
     const NavigateAndClose = (section: string) => {
-        navigateToSection(section)
+        navigateToSection(section, 80)
         closeMenu()
     }
 
     return (
         <Menu component='div'>
-            <Button onClick={closeMenu}><img src={Close} /></Button>
-            <Name>Paweł Musioł</Name>
-            <Button onClick={() => NavigateAndClose('landing')}>{language == 'pl' ? "Start" : 'Start'}</Button>
+            <Button onClick={closeMenu}><img src={Close} alt="close" /></Button>
+            <Button onClick={() => NavigateAndClose('landing')}><Name>Paweł Musioł</Name></Button>
+            {/* <Button onClick={() => NavigateAndClose('landing')}>{language == 'pl' ? "Start" : 'Start'}</Button> */}
             <Button onClick={() => NavigateAndClose('about')}>{language == 'pl' ? "O Mnie" : 'About'}</Button>
             <Button onClick={() => NavigateAndClose('projects')}>{language == 'pl' ? "Projekty" : 'Projects'}</Button>
             <Button onClick={() => NavigateAndClose('contact')}>{language == 'pl' ? "Kontakt" : 'Contact'}</Button>
-            <Button onClick={changeLanguage} ><img style={{ maxWidth: '20vw' }} src={language == 'pl' ? UKFlag : PolishFlag} /></Button>
+            <Button onClick={changeLanguage} ><img style={{ maxWidth: '20vw' }} src={language == 'pl' ? UKFlag : PolishFlag} alt="change language" /></Button>
         </Menu>
     )
 }

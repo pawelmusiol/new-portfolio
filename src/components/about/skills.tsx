@@ -46,13 +46,11 @@ const Stack = [
 
 
 const SkillsGrid = styled(Grid)(({ theme }) => ({
-    //backgroundColor: 'rgba(0, 0, 0, 0.4)',
-    //backdropFilter: 'blur(10px)',
     borderRadius: 12,
     padding: 10,
     [theme.breakpoints.down('md')]: {
         marginLeft: '0',
-        width: '90vw',
+        width: '100%',
         //transform: 'scale(.7)',
         alignItems: 'flex-start',
     }
@@ -66,16 +64,32 @@ const SingleSkillGrid = styled(Grid)(({ theme }) => ({
     textAlign: 'center',
 }))
 
-const BoxWithBG = styled(Box)(() => ({
-    background: ' linear-gradient(54.48deg, rgba(54, 169, 225, 0.5) 0%, rgba(66, 158, 218, 0.5) 4.63%, rgba(124, 102, 186, 0.5) 29.26%, rgba(170, 58, 160, 0.5) 51.98%, rgba(203, 26, 141, 0.5) 72.07%, rgba(223, 7, 130, 0.5) 88.76%, rgba(230, 0, 126, 0.5) 100%)'
-
+const BoxWithBG = styled(Box)(({ theme }) => ({
+    background: ' linear-gradient(54.48deg, rgba(54, 169, 225, 0.5) 0%, rgba(66, 158, 218, 0.5) 4.63%, rgba(124, 102, 186, 0.5) 29.26%, rgba(170, 58, 160, 0.5) 51.98%, rgba(203, 26, 141, 0.5) 72.07%, rgba(223, 7, 130, 0.5) 88.76%, rgba(230, 0, 126, 0.5) 100%)',
+    display: 'flex',
+    maxWidth: '80px',
+    minWidth: '80px',
+    aspectRatio: '1/1',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: '12px',
+    '& > img': {
+        zIndex: 10,
+        maxWidth: '48px',
+        minWidth: '48px'
+    },
+    [theme.breakpoints.down('md')]: {
+        minWidth: '20vw',
+        maxWidth: '20vw',
+    }
 }))
 
 const SingleSkill = ({ name, src }: { name: string, src: string, }) => {
     return (
         <SingleSkillGrid item xs={3} md={2}>
-            <BoxWithBG sx={{ display: 'flex', maxWidth: '80px', minWidth: '80px', aspectRatio: '1/1', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', borderRadius: '12px' }} >
-                <img style={{ zIndex: 10, maxWidth: '48px', minWidth: '48px' }} src={src} />
+            <BoxWithBG sx={{}} >
+                <img style={{}} src={src} alt={name} />
             </BoxWithBG>
             <Typography sx={{ zIndex: 10 }}>{name}</Typography>
         </SingleSkillGrid>
@@ -90,13 +104,12 @@ const Skills = ({ title }: IProps) => {
     return (
         <Box component='div' sx={{ marginTop: 10 }}>
             <Typography variant='h3' sx={{ margin: '12px 0', textAlign: 'center' }}>{title}</Typography>
-            <SkillsGrid spacing={2} container direction='row' sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', marginTop: 6 }}>
+            <SkillsGrid spacing={{md:2, xs:0}} container direction='row' sx={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-start', marginTop: 6 }}>
                 {Stack.map((skill, i) => {
                     return (
                         <>
                             {/*i % 3 == 0 && <Box component='div' width="100%" />*/}
                             <SingleSkill name={skill.name} src={skill.img} />
-
                         </>
                     )
                 })}

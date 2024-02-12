@@ -64,20 +64,20 @@ const Tabs = () => {
             <SingleLink sx={{justifyContent: 'flex-end'}} xs={7} onClick={() => NavigateToSection('about')}>
                 {State.Language == 'pl' ? "O Mnie" : 'About'}
             </SingleLink>
-            <SingleLink sx={{justifyContent: 'flex-end'}} xs={9} onClick={() => NavigateToSection('about')}>
+            <SingleLink sx={{justifyContent: 'flex-end'}} xs={9} onClick={() => NavigateToSection('projects')}>
                 {State.Language == 'pl' ? "Projekty" : 'Projects'}
             </SingleLink>
-            <SingleLink sx={{justifyContent: 'flex-end'}} xs={6} onClick={() => NavigateToSection('about')}>
+            <SingleLink sx={{justifyContent: 'flex-end'}} xs={6} onClick={() => NavigateToSection('contact')}>
                 {State.Language == 'pl' ? "Kontakt" : 'Contact'}
             </SingleLink>
             <SingleLink sx={{justifyContent: 'center'}} xs={4} onClick={ChangeLanguage}>
-                <img src={State.Language == 'pl' ? UKFlag : PolishFlag} />
+                <img src={State.Language == 'pl' ? UKFlag : PolishFlag} alt="flag" />
             </SingleLink>
             <SingleLink sx={{justifyContent: 'center'}} xs={3} href="https://github.com/pawelmusiol">
-                <img src={GitHub} />
+                <img src={GitHub} alt="github" />
             </SingleLink>
             <SingleLink sx={{justifyContent: 'center'}} xs={3} href="https://www.linkedin.com/in/pawe%C5%82-musio%C5%82-9875081a3/">
-                <img src={LinkedIn} />
+                <img src={LinkedIn} alt="LinkedIn" />
             </SingleLink>
         </Grid>
     )

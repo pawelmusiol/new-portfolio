@@ -5,9 +5,19 @@ import { UKFlag, PolishFlag, Menu } from "../../images";
 import { useMobile } from "../../hooks";
 import MobileMenu from "./mobileMenu";
 
-export const NavigateToSection = (id: string) => {
+export const NavigateToSection = (id: string, marginTop: number = 0) => {
     //window.scrollTo({top: window.innerHeight * position, behavior: 'smooth'})
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' })
+    let elementDimensions = document.getElementById(id)?.getBoundingClientRect()
+    console.log(marginTop)
+
+    if (elementDimensions) {
+        window.scrollTo({
+            left: window.scrollX,
+            top: window.scrollY + elementDimensions.top - marginTop,
+            behavior: 'smooth'
+        })
+    }
+    //?.scrollIntoView({ behavior: 'smooth' })
 }
 
 const TopBar = styled(AppBar)({
@@ -55,7 +65,7 @@ const TopMenu = () => {
         setTimeout(() => {
             setOpenMenu(false)
             if (mobile) setBlobPosition('0')
-        },100)
+        }, 100)
     }
 
     const barRef = useRef<HTMLDivElement>(null!)
@@ -78,16 +88,18 @@ const TopMenu = () => {
     return (
         <TopBar sx={{ zIndex: 10000 }} ref={barRef}>
             <OuterBox component='div'>
-                <Typography sx={{color: '#FFDB58', fontSize: '1.6rem'}}>Paweł Musioł</Typography>
+                <Button onClick={() => NavigateToSection('landing')}>
+                    <Typography sx={{ color: '#FFDB58', fontSize: '1.6rem' }}>Paweł Musioł</Typography>
+                </Button>
                 <Box component='div'>
                     {!mobile ? <>
                         <Button onClick={() => NavigateToSection('about')}>{State.Language == 'pl' ? "O Mnie" : 'About'}</Button>
                         <Button onClick={() => NavigateToSection('projects')}>{State.Language == 'pl' ? "Projekty" : 'Projects'}</Button>
                         <Button onClick={() => NavigateToSection('contact')}>{State.Language == 'pl' ? "Kontakt" : 'Contact'}</Button>
-                        <Button onClick={ChangeLanguage}><img src={State.Language == 'pl' ? UKFlag : PolishFlag} /></Button>
+                        <Button onClick={ChangeLanguage}><img src={State.Language == 'pl' ? UKFlag : PolishFlag} alt="Change Language" /></Button>
                     </>
                         :
-                        <Button onClick={onMenuOpen}><img src={Menu} /></Button>
+                        <Button onClick={onMenuOpen}><img src={Menu} alt="menu" /></Button>
                     }
                     {OpenMenu &&
                         <MobileMenu
