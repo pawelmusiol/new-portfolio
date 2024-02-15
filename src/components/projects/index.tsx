@@ -10,8 +10,8 @@ const projectsData = [
         live: 'https://archongroup.pl/',
         github: '',
         desc: {
-            pl: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            en: ''
+            pl: 'Dynamiczna strona internetowa dla lokalnej firmy, która kładzie nacisk na wyraźne przekazywanie informacji o usługach. Projekt obejmował responsywny design oraz zoptymalizowane elementy SEO.',
+            en: 'A dynamic website for a local business, emphasizing clear communication of services. The project included a responsive design and optimized SEO elements, ensuring increased visibility and effective marketing strategies.'
         },
         tech: ['Java script', 'React', 'gatsby'],
     },
